@@ -1,0 +1,10 @@
+version: '3'
+services:
+  rewards-service:
+    container_name: rewards-service
+    restart: on-failure
+    build: ./
+    ports:
+      - '8080:8080'
+    healthcheck:
+      test: [ "CMD", "nc", "-z", "localhost", "8080" ]
